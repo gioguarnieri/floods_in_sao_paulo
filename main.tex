@@ -1,0 +1,547 @@
+%Version 3 October 2023
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%======================================================%%
+%% to compile with pdflatex/xelatex use pdflatex option %%
+%%======================================================%%
+
+%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-vancouver.bst, sn-chicago.bst%  
+ 
+\documentclass[sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+% \documentclass[sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style 
+%%\documentclass[sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[sn-vancouver,Numbered]{sn-jnl}% Vancouver Reference Style
+%%\documentclass[sn-apa]{sn-jnl}% APA Reference Style 
+%%\documentclass[sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Systemic Risk in São Paulo: When streets susceptible to flood are also network keystones]{Systemic Risk in São Paulo: When streets susceptible to flood are also network keystones}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Giovanni} \sur{G. Soares}}\email{giovanni.soares@inpe.br}
+
+\author[2]{\fnm{Lívia} \sur{R. Tomás}}
+% \equalcont{These authors contributed equally to this work.}
+
+\author[3]{\fnm{Vander} \sur{L. S. Freitas}}
+% \equalcont{These authors contributed equally to this work.}
+\author[4]{\fnm{Luiz} \sur{M. Carvalho}}
+\author[1,2]{\fnm{Leonardo} \sur{B. L. Santos}}
+
+
+\affil*[1]{\orgdiv{Applied Computing}, \orgname{National Institute for Space Research (INPE)}, \orgaddress{\street{Av. dos Astronautas}, \city{São José dos Campos}, \postcode{12227-010}, \state{São Paulo}, \country{Brazil}}}
+
+\affil[2]{\orgname{National Center for Monitoring and Early Warning of Natural Disasters (Cemaden)}, \orgaddress{\street{Dr Altino Bondesan}, \city{São José dos Campos}, \postcode{12247-016}, \state{São Paulo}, \country{Brazil}}}
+
+\affil[3]{\orgdiv{Departament of Computing}, \orgname{Federal University of Ouro Preto (UFOP)}, \orgaddress{\street{R. Quatro}, \city{Ouro Preto}, \postcode{35400-000}, \state{Minas Gerais}, \country{Brazil}}}
+
+\affil[4]{\orgdiv{Escola de matematica aplicada}, \orgname{Getulio Vargas Foundation (FGV)}, \orgaddress{\street{Praia de Botafogo}, \city{Rio de Janeiro}, \postcode{22250-900}, \state{Rio de Janeiro}, \country{Brazil}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{The present work uses a complex network approach for combining street - from the OpenStreetMap project (OSM) - and flood data to analyze correlations between topological properties of street networks.
+We analyze intra-urban scale data from the central area of São Paulo (Brazil), obtained via OSM and modeled as a (geo)graph, resulting in a graph with 1214 nodes (streets) and 2971 edges (intersections). The flood data was collected from January to March 2019. This data was then cross-referenced with the (geo)graph, resulting in 1016 floods. We calculate complex network metrics such as degree, mean shortest path, betweenness, mean communicability, mean efficiency, and vulnerability to the entire graph. We then divided our dataset into flooded and non-flooded streets and produced histograms and violin plots to compare flooded and non-flooded streets.
+We apply the Mann-Whitney U test and conclude that the mean shortest path, betweenness, mean efficiency, and vulnerability provide evidence against the null-hypothesis test that the network metrics of flooded and non-flooded streets have identical distributions. Our results indicate that streets susceptible to flooding have a high hierarchy, having a greater impact in the network.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Complex Networks, Impact, Urban Mobility, Topology}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec1}
+
+Street networks are the backbone of highly urbanized areas; they are where most of the human mobility takes place, playing a critical role on transport \cite{yuan2023predicting}. Understanding the causes and effects of structural degrading events can help increase the robustness against such failures. These events can take shape as random failures, erosion, wear, floods, etc. 
+In the last few years, the growing frequency and intensity of floods have become a significant concern for urban planners and policymakers worldwide \cite{Zare2018}.
+Floods pose substantial risks to public safety and infrastructure, disrupting the normal functioning of cities and leading to extensive economic and social losses, such as displacing people and even causing deaths \cite{Pregnolato2017, ye2021towards}.
+
+Urban floods occur when the drainage system fails, causing water to flow into the street and making locomotion difficult and dangerous \cite{Tomas2022}. 
+Human activities can have a broad impact on flood processes by altering runoff generation in river basins and affecting catchment wetness, which, when combined with climate change, can increase flood risk due to heavy precipitation. \cite{Merz2021}. 
+
+Understanding the factors that contribute to flood occurrence and propagation is crucial to increasing the system's robustness against it. One effective approach is using graph theory since it enables easy modeling of transportation networks and extraction of valuable metrics from such models.
+Using graph theory in transportation networks is not new \cite{Aez1996}, with studies on street and road maps appearing in the mid-2000s\cite {Porta2006, Jenelius2006}.
+More recently, ranking the nodes in China Railway Express was helpful in identifying important logistic nodes looking to improve network stability \cite{Zhang2020}.
+
+Two recent studies present techniques to estimate impacts differently.
+The first study by \cite{Morelli2021} measures urban road network vulnerability to extreme events.
+They present the ``efficiency of alternative'' metric, which centers on how obstructions caused by a disaster tend to increase path lengths in the system.
+The second study \cite{vanGinkel2022} explores the idea of a percolation analysis by sampling ten thousand flood combinations and verifying their impact on road network performance, finding that nationwide network fragmentation seems unlikely. At the same time, a regional-scale vulnerability is more present.
+The data of both these studies present different scales.
+The intra-urban scale is the finest, considering all streets, highways, and roads inside the area of interest.
+On a less detailed scale, we may consider only the highways or turn the intra-urban scale into a regular grid, highlighting the most significant value of a reference metric.
+
+Using a coarser scale is interesting for treating larger areas without high computational power, as calculating some metrics can be onerous. An example is using a regular grid matching a graph made with the streets in the \textit{Tamanduateí} basin in São Paulo. The grid treats the geographical units composed of $3087$ grid cells.
+The regular grid divides the relevant area into spaces of the same size, 200m x 200m. It exploits the data inside this discretization, thus simplifying the dataset by coarsening geographical space \cite{Tomas2022}.
+On a different scale, using the (geo)graph approach to represent a set of highways as a network in a case study of Santa Catarina state (Brazil), the authors calculate the vulnerability associated with each highway and categorize them as Low, Moderate, High, and Extremely High \cite{frontiers_vul}.
+The intra-urban scale considers all streets, avenues, and highways matching the scale of our flood data. The individuality of each street is preserved, meaning that each metric represents the street's unique characteristics.
+This way, the relation between the street characteristics and flood is straightforward, leading it to be our approach in this work.
+The present work uses a complex network approach for combining street - from the OpenStreetMap project (OSM) - and flood data to develop new strategies to estimate the impact of those floods and help prevent and mitigate social-environmental/natural disasters. 
+
+The topological characteristics of a network, such as a street map, may hold valuable insights into the likelihood of streets becoming flooded during extreme weather events.
+We hypothesize that specific network topologies have predisposing factors, potentially leaving a signature that can be identified by correlating flood data with street maps.
+
+This paper uncovers a distinct signature by integrating flood data and complex network metrics derived from the street map.
+Employing statistical tools such as the Mann-Whitney U test, we systematically analyze and compare the distributions of network metrics for flooded and non-flooded streets.
+The Mann-Whitney U test is a nonparametric method particularly well-suited for this investigation. It allows for examining potential differences between the two categories without making stringent assumptions about the underlying distributions.
+
+The significance of this study lies in providing valuable insights into the relationship between flood occurrences and the underlying network topology. Here, a clear signature emerges: streets with a lower mean shortest path, meaning they are closer to all others, have a greater propensity to flood.
+Identifying these network topologies associated with flooded streets could inform urban planning strategies, enabling more resilient and flood-resistant infrastructure.
+
+
+This paper is organized as follows. In Section \ref{ch:chap2}, we explain and illustrate both our datasets, then we provide a short explanation of each network metric used in this work, and close the section by showing the statistical analysis used to investigate potential correlations between flood data and network topology. In Section \ref{ch:chap3}, we display our results with histograms, tables, violin plots, and maps, discussing and explaining each one. We finish our work in Section \ref{ch:conclusions}, where we discuss the implications of our findings and their relevance in the broader context of urban resilience and flood risk management.
+
+% The following sections elaborate on the data collection and processing methodology, the complex network metrics that characterize the street map, and the statistical analysis to investigate potential correlations between flood data and network topology.
+% Furthermore, we will discuss the implications of our findings and their relevance in the broader context of urban resilience and flood risk management.
+
+
+
+\section{Mateirals and methods}
+\label{ch:chap2}
+
+Our analysis relies on two primary vector datasets: flooding and street network data.
+The flooding data was obtained by \cite{Tomas2022}, and we specifically selected records from January to March 2019, the most intense period of rain, as our designated time frame.
+The street network was procured from the Center for Studies of the Metropolis \cite{CEM} and we focused on the central area of São Paulo city, precisely the surroundings of Sé Square, as depicted in Figure~\ref{fig:studyarea}.
+By applying this spatial filter, we effectively pinpointed and included only those flooding points that overlap with this defined area.
+
+\begin{figure}[H]
+    \centering
+    \caption{Study area (São Paulo city, Sé Square), showing floods and street network.}
+    \includegraphics[width=0.8\columnwidth]{Figures/StudyArea.png}
+    
+    \label{fig:studyarea}
+\end{figure}
+
+After cross-referencing the data sources, we create a graph through the street network with $1,214$ streets and $2,971$ intersections using the software \href{https://github.com/aurelienne/gis4graph}{GIS4Graph}\footnote{https://github.com/aurelienne/gis4graph}.
+GIS4Graph (\textit{G4G}) is an open-source software that aims to help analyze geographic networks based on (geo)graphs - graphs in which the nodes have a known geographical location, and the edges have spatial dependence \cite{g4g}.
+
+From \textit{G4G}, we obtain the graph's edge list, street specifications, and shapefile. The shapefile contains the streets, and the CSV file contains each street name. This preservation is necessary to cross the street map with the flooding dataset. Our dataset is crossed mainly with the Python module \textit{pandas} \cite{reback2020pandas}. 
+
+Graphs are defined as $G = (V,E)$, in which $V$ is the set of vertices (or nodes), and $E$ is the set of edges (or links). Here, we use graphs to represent the street map, allowing us to compute graph metrics described in Table \ref{tab:metrics}. This representation is made by turning streets into nodes and their intersections as edges. This way, we can look into the signatures flooded and non-flooded streets might have.
+
+
+\begin{table}[H]
+    \centering
+    \caption{Description of each network metrics used in this work.}
+    \begin{tabularx}{\textwidth}{X|X}
+         \hline
+         \textbf{Metric} & \textbf{Description} \\
+         \hline
+         Degree & Number of connections of a node. \\
+         \hline
+         Shortest Path & The shortest geodesic distance from one node to another.\\
+         \hline
+         Mean Shortest Path & Mean shortest path length of all possible node combinations.\\
+         \hline
+         Betweenness & The importance of a node in the network's shortest paths. It accounts for the number of shortest paths that go through the node.\\
+         \hline
+         Efficiency \cite{Latora2001}&  A measure of how efficiently the network exchanges information. It is calculated by taking the inverse of the shortest path from one node to another.\\
+         \hline
+         Communicability \cite{Estrada2008} & A broader generalization of the concept of the shortest path. It uses all possible walks one node can have to another, highlighting different aspects of the network.\\
+         \hline
+         Vulnerability \cite{Latora2004, Goldshtein2004} & Metric to spot the critical components of a critical infrastructure network.
+         \\
+         \hline
+    \end{tabularx}
+    
+    \label{tab:metrics}
+\end{table}
+
+Here, we compute all metrics at the node level since each node represents a street, and we intend to cross street information with flood data. We adapt some metrics, such as the shortest path and efficiency, by taking means to fit this approach.
+
+The results section presents the metrics as histograms, violin, and box plots.
+It is used to visualize the distribution of numerical data. Unlike a box plot that can only show summary statistics, violin plots depict summary statistics and the density of each variable.
+
+We divide the methodology applied in this work into two parts. One analyzes the graph obtained via \textit{G4G}, and the other crosses the street graph with the flood data by merging via street names. The corresponding source code is available at a GitHub repository.
+
+\subsection{Mann-Whitney U Test}
+
+The Mann-Whitney U Test is a non-parametric test for comparing two populations, $X$ and $Y$.
+In particular, using two random (iid) samples from $X$ and $Y$, we want to test the null hypothesis that the probability of $X$ being greater than $Y$ is equal to the probability of $Y$ being greater than $X$.
+
+Consider $\boldsymbol{X} = (X_1, X_2, \ldots, X_{n_1})$ and $\boldsymbol{Y} = (Y_1, Y_2, \ldots, Y_{n_2})$ as random samples from $X$ and $Y$ respectively.
+The test works by merging the $\boldsymbol{X}$ and $\boldsymbol{Y}$ and ranking their values from smallest to largest.
+Then the sample is split again, but now with their ordering values instead.
+
+We compute the statistics $U_1$ and $U_2$ from their ranks as follows:
+\begin{equation}
+U_1 = n_1 n_2  + \frac{n_1(n_1+1)}{2} - R_1,
+\end{equation}
+and
+\begin{equation}
+    U_2 = n_2 n_1  + \frac{n_2(n_2+1)}{2} - R_2,
+\end{equation}
+where $n_1$ is the number of values of the first sample and $n_2$ of the second sample. $R_1$ and $R_2$ are each sample's sum of ranks.
+The null hypothesis here is that $R_1$ and $R_2$ are equal.
+
+Now, we select the smaller value between $U_1$ and $U_2$ making $U = \min(U_1, U_2)$ and calculate the expected value of $U$
+\begin{equation}
+    \mu_U = \frac{n_1n_2}{2},
+\end{equation}
+and its  standard error
+\begin{equation}
+    \sigma_U = \sqrt{\frac{n_1n_2(n_1+n_2+1)}{12}},
+\end{equation}
+which allows us to compute the the z-value
+\begin{equation}
+    z = \frac{U - \mu_U}{\sigma_U}.
+\end{equation}
+
+This z-value can then be compared to its distribution under the null hypothesis (standard normal), yielding a p-value which can be compared to a desired significance level.
+
+To provide a concise overview of our methodology, we partition the dataset into two categories: flooded and non-flooded streets. Subsequently, we employed histograms and violin plots as visual tools for analyzing and visualizing the distributions within each category.
+
+Afterward, we conducted a comparative analysis using the Mann-Whitney U test to assess whether the metrics calculated for flooded streets exhibited any discernible signatures. This statistical test enabled us to determine the presence or absence of significant differences between the two categories, thereby shedding light on the critical contrasts in the dataset.
+
+\section{Results and discussion}
+\label{ch:chap3}
+
+We illustrate our results using histograms, maps, violin plots, and tables. With the histograms, we can verify some graph characteristics, understand the distributions, and compare flooded with non-flooded. The table depicts the results from the Mann-Whitney U test, and the violin plots help to visualize the differences in the separated datasets, one with flooded and the other with non-flooded streets.
+
+\subsection{Distributions}
+
+Now, we look into the distributions to guide us on how the differences in the separated datasets may arise. Those distributions relate to the percentage of each metric that appears in each dataset. Figure \ref{fig:allroads_histo} shows the histograms made to the non-classified dataset. For most of our histograms, the distributions have more streets with low values, peaking at the beginning around $0$ and rapidly decreasing except for the degree, which starts with low values, increasing around 4 or 5 and decreasing again.
+
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[width=\columnwidth]{Figures/all_metrics_histo2.png}
+    \caption{A series of histograms from our non-classified dataset, representing the distribution of each metric used in this work.}
+    \label{fig:allroads_histo}
+\end{figure}
+
+Figure \ref{fig:nonfloodedroads} represents a collection of histograms made with only the non-flooded streets. By comparing it to Figure \ref{fig:allroads_histo}, it does not show a significant difference. Except for the mean shortest path length, the distributions kept their shape and behavior.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/all_metrics_histo_non_flooded.png}
+    \caption{A series of histograms from non-flooded streets dataset, representing the distribution of each metric used in this work}
+    \label{fig:nonfloodedroads}
+\end{figure}
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\columnwidth]{Figures/all_metrics_histo_flooded.png}
+    \caption{A series of histograms from the flooded streets dataset, representing the distribution of each metric used in this work.}
+    \label{fig:floodedroads}
+\end{figure}
+
+Now, comparing the flooded streets histograms in Figure \ref{fig:floodedroads} to Figure \ref{fig:nonfloodedroads}, we see some differences, most noticeable in the mean shortest path length. It presents a concentration of lower values, between  $0$ and $3$ in Figure \ref{fig:floodedroads}, while this concentration in Figure \ref{fig:nonfloodedroads} assumes more values, going from $0$ to $5$. Such differences can occur because flooded streets have fewer samples than non-flooded streets, necessitating more tools to investigate the singularities in those distributions. 
+
+Table \ref{tbl:stats} presents the mean, median, and standard deviations of metrics. We highlight the two metrics where the average and median significantly differ when comparing the non-flooded streets to the flooded. The betweenness centrality presents a more significant difference in both cases.
+
+\begin{table}[H]
+\centering
+\scalebox{0.85}{
+\begin{tabular}{l|ccc|ccc}
+\hline
+                           & \multicolumn{3}{l}{Flooded} & \multicolumn{3}{|l}{Non-flooded} \\\hline
+Metric                     & Average    & Median  & Std     & Average      & Median   & Std      \\ \hline
+Degree coefficient         & 5.08    & 5       & 1.16    & 4.86      & 5        & 1.34     \\
+\rowcolor{LightCyan} Mean shortest path length  & 2.48    & 1.92    & 2.15    & 3.53      & 3.29     & 2.47     \\
+\rowcolor{LightCyan} Betweenness centrality     & 97.75   & 29.66   & 220.69  & 152.66    & 61.28    & 251.17   \\
+Mean communicability value & 22.21   & 16.37   & 24      & 24.36     & 18.92    & 21.99    \\
+Mean efficiency value      & 5.98e-3 & 4.26e-3 & 5.71e-3 & 7.24e-3   & 5.97e-3  & 5.93e-3  \\
+Vulnerability coefficient  & 1.72e-3 & 1.04e-3 & 2.31e-3 & 2.09e-3   & 1.49e-3  & 2.33e-3
+\\
+\hline
+\end{tabular}
+}
+\caption{Table relating average, median, and standard deviation to both separated datasets.}
+\label{tbl:stats}
+
+\end{table}
+
+
+
+\subsection{Maps}
+\label{sec:maps}
+
+In our street graph, each street is connected on average with 4.89 others (graph’s mean degree), and the most topologically extensive shortest path from one node to another is 20 (graph’s diameter). Figure \ref{fig:roads_sep} shows the datasets on a map. In the first analysis, we count $185$ flooded streets against $1029$ non-flooded, i.e., only 15.25\% of the data has the flooded label.
+ 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/roads_separeted.png}
+    \caption{Street network categorized as flooded or non-flooded }
+    \label{fig:roads_sep}
+\end{figure}
+
+
+
+The following figures show each metric superimposed on the flooding points. This visualization is helpful in better detecting the conglomerate of floods in certain areas and understanding if the network's topology can influence the presence of floods. In all figures, we categorize the dataset values into four classes using the Jenks natural breaks classification method.
+
+Figure \ref{fig:flood_degree} pictures the number of intersections of each street with said floods. We consider both ways of intersections, with streets going in and out (which we name ``all degrees''). Here, we visualize the degree distribution in play. Streets with 6 or 7 intersections are way more present than all others. Floods happen on those streets more frequently. However, this relation can be caused by the higher presence of streets with 6 to 7 intersections, making it more probable to flood.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/all_degree.jpg}    
+    \caption{Streets Degree coefficient considering in and out degree (``all\_degree'').}
+    \label{fig:flood_degree}
+\end{figure}
+
+
+Next, we depict the relation between the mean shortest path length and floods in Figure \ref{fig:flood_msp}. The mean shortest path is a topological metric representing how close a street is to all others, considering the shortest path from one node to another. A street with a smaller mean shortest path length can easily reach the rest of the network compared to the others. The classes on the mean shortest path length map have approximately an interval of two, with a more significant presence of $0.0$-$2.0$ and $2.1$-$4.4$ values. However, floods are more present in the class with the lowest values. This characteristic can correlate with those streets being easier to access since they are closer to the rest of the network, corroborating our histogram analysis.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/msp.jpg}
+    \caption{Streets mean shortest path length (ms).}
+    \label{fig:flood_msp}
+\end{figure}
+
+The betweenness centrality is considered in Figure \ref{fig:flood_betw}. It is a complex network metric quantifying the node's importance when considering shortest paths. This way, the bigger the betweenness, the more shortest paths cross that street. There is a discrepancy in the class distribution, where the first class (lower values) dominates the spectrum. It is expected since taking main avenues to reach other regions is more strategic. However, unlike with the degree, the floods do not happen mainly in the more dominant class. They are scattered into various classes.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/betweenness.jpg}\\
+    \caption{Streets betweenness centrality metric (betw).}
+    \label{fig:flood_betw}
+\end{figure}
+
+
+We represent the mean communicability in Figure \ref{fig:flood_comm}. Communicability is a generalization of the shortest path, using all possible walks from one node to another. The mean communicability is a mean of all communicabilities a node has with other nodes, simplifying the idea of a node-to-node metric to a node-specific metric, similar to the mean shortest path length. In our context, making a parallel to the mean shortest path length, the mean communicability would be how ``reachable'' a street is, a measure of the flow of information. The bigger the value of mean communicability, there are more ways to reach the associated street. However, despite many ways to access the street, floods only happen occasionally on streets with higher mean communicability.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/mean_comm.jpg}
+    \caption{Streets mean communicability metric (mean\_comm).}
+    \label{fig:flood_comm}
+\end{figure}
+
+
+Mean efficiency is a metric associating an efficiency value to the node instead of the node-to-node pair. The change in the metric gives us an idea of how close the node is to all other nodes in the network. It means that if a node has a low value of mean efficiency, it takes fewer steps on average to reach it.
+
+In Figure \ref{fig:flood_effi}, we represent the mean efficiency metric. It is similar to the mean communicability map, with a predominance of the second class, which also is the class with more presence of floods.
+
+\begin{figure}[H]
+\caption{Streets mean efficiency metric (e\_mean).}
+    \centering
+    \includegraphics[width=0.65\columnwidth]{Figures/mean_effi.jpg}
+    
+    \label{fig:flood_effi}
+\end{figure}
+
+
+Our last metric, vulnerability, measures the impact of the disconnection of a street from the network. The ideal scenario for this metric would be to present fewer floods in higher vulnerability streets since the impact of floods would be more significant. Figure \ref{fig:flood_vuln} shows that it indeed happens since there is more presence of floods in the first two classes (with lower values). The first class is the dominant, where floods happen more often than others. 
+
+\begin{figure}[H]
+    \centering
+    \caption{Streets vulnerability coefficient metric (vuln\_efi).}
+    \includegraphics[width=0.65\columnwidth]{Figures/vuln_efi.jpg}
+    
+    \label{fig:flood_vuln}
+\end{figure}
+
+
+Our next task is to analyze the violin plots, explicitly focusing on the metrics that exhibit the most significant difference between the mean and median and a straightforward relationship between the different classes and the incidence of floods in the maps, as outlined in this Subsection.
+
+\subsection{Violin plots}
+
+Following, we select four metrics to showcase the violin plots via Figure \ref{fig:todos_violin}, comparing the statistics side by side, revealing different aspects between each.
+
+\begin{figure}[h]
+    \centering
+    \caption{Series of violin plots, where yellow (left side) represents the flooded streets, while purple (right side) represents non-flooded streets. Dividing into two distributions, with a box plot inside. The representations are to a) the mean shortest path, b)  betweenness, c) vulnerability, and d) mean efficiency.}
+    \includegraphics[width=0.45\textwidth]{Figures/todos.pdf}
+    
+    \label{fig:enter-label}
+    \label{fig:todos_violin}
+\end{figure}
+
+The differences in both distributions are apparent in Figure \ref{fig:todos_violin}a. The mean value in the box plot for the non-flooded sample is higher than the flooded one, and the standard deviation is bigger for the non-flooded. This difference is the same as the histograms showed us, with a concentration of values around $0$ and $2$ to flooded roads and $0$ and $5$ to non-flooded.
+
+In Figure \ref{fig:todos_violin}b, the betweenness has a high concentration of values around $0$ while very low streets have a high betweenness. It is expected since some streets give more access than others.
+
+Figure \ref{fig:todos_violin}c depicts the vulnerability having a high concentration of low values. When calculated to a street map, vulnerability with efficiency usually has these small values, as $0.005$ and $0.01$. There is a difference between flooded and non-flooded streets, but it is visually less significant than the others.
+
+To the Mean Efficiency in Figure \ref{fig:todos_violin}d, we see a slight shift when comparing non-flooded and flooded streets. The box plot is also higher than non-flooded streets, albeit not a change so significant when compared with the mean shortest path length.
+
+\subsection{Mann-Whitney U Test}
+
+To mathematically compare distributions pairwise, we apply the Mann-Whitney U test (Table \ref{tbl:mwu}). The p-value provides evidence against the null hypothesis, and if it is lower than 0.5\% (or 0.005), we consider that it passes. Thus, the lower the p-value, the more significant the difference.
+
+\begin{table}[H]
+\centering
+\caption{Table relating each metric with the p-value obtained when comparing both samples of flooded and non-flooded streets with the Mann-Whitney U test. Highlighted in blue are the metrics with a p-value under 0.005.}\label{tbl:mwu}
+\begin{tabular}{c|c}
+\toprule
+Metric                             & p-value  \\
+\midrule
+Degree                             & $7.075\times10^{-3}$ \\
+\rowcolor{LightCyan}
+Mean shortest path                 & $1.655\times10^{-8}$ \\
+\rowcolor{LightCyan}
+Betweenness                        & $2.350\times10^{-5}$ \\
+Mean communicability               & $3.140\times10^{-2}$ \\
+\rowcolor{LightCyan}
+Mean efficiency                    & $5.479\times10^{-4}$ \\
+\rowcolor{LightCyan}
+Vulnerability & $4.967\times10^{-4}$\\
+\botrule
+\end{tabular}
+\end{table}
+
+We reject the null hypothesis to four of six metrics, with the lower value being the mean shortest path length. This conclusion is expected and reflects well the previously discussed distributions and violin plots.
+
+\section{Conclusion}\label{sec13}
+\label{ch:conclusions}
+
+Our analyses consist of investigating topological differences between flooded and non-flooded streets using graph theory and statistics. We compare distributions of network metrics such as the mean shortest path, betweenness, mean efficiency, and vulnerability.
+
+Upon analyzing both data sets of flooded and non-flooded streets, we notice that the mean shortest path metric has the most significant difference in its distribution. With further investigation, the violin plots point toward a possible correlation between the lower value of the mean shortest path and flooded streets. These findings imply that streets located in close proximity to one another are more susceptible to flooding.
+
+The Mann-Whitney U test corroborates this implication. Most tests pass a significance test of 0.5\%, but it is crucial to notice how the mean shortest path test has a smaller p-value than the others.
+
+
+It is crucial to note that we are observing a correlation, not establishing causation. However, these metrics reveal that the streets with the highest number of floods also have the greatest potential impact from a complex network perspective.
+
+% It is crucial to note that we are observing a correlation, not establishing causation. However, these metrics could be useful for identifying potential flood-risk areas and understanding their impact on transportation systems. This could contribute to efforts aimed at making cities more resilient to flooding.
+
+
+Floods occur due to several physical factors that impede proper drainage. When planning to build a road network, can we mitigate these types of events by considering specific properties, such as the mean shortest path? Does the network's topology correlate with this lack of drainage? Further investigation is needed to answer those questions.
+
+
+Our main limitation in this work is the need to obtain and cross-reference different datasets due to the requirement for a standard primary key for the streets. Solving this preprocessing problem was laborious. Besides, high computational power is needed to calculate some metrics used in this work, limiting the size of the street map used to cross our dataset.
+
+In future research, we plan to scale our methodological framework to encompass the entirety of São Paulo, extending the observational period from the initially confined January-March time window to a year-round analysis. Furthermore, we propose a transition from a point-based to a polygon-based representation of flood phenomena, given that flooding is inherently a spatially expansive event with the capability to render multiple streets inaccessible concurrently. This proposed modification is anticipated to provide a more realistic and informative portrayal of flood dynamics.
+\\
+
+% \noindent \textbf{Acknowledgements:} We would like to thank the funding of projects 446053/2023-6 and 140196/2022-6 Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) and Conselho Nacional de Desenvolvimento Científico e Tecnológico PRINT project 88887.900891/2023-00.\\
+
+\newpage
+\thispagestyle{empty}
+
+\noindent \textbf{Availability of data and material:} The data that support the findings of this study are openly available at 
+\begin{verbatim}
+    https://github.com/gioguarnieri/floods_in_sao_paulo
+\end{verbatim}
+\noindent \textbf{Funding}: This research was funded by the projects 446053/2023-6 and 140196/2022-6 from Conselho Nacional de Desenvolvimento Científico e Tecnológico (CNPq) and Conselho Nacional de Desenvolvimento Científico e Tecnológico PRINT project 88887.900891/2023-00.\\
+\noindent \textbf{Competing interests:} The authors have no conflicts to disclose.\\
+\noindent \textbf{Authors' contributions:} All authors contributed to the text and conceptualization. Soares did the computational work. Tomás made the plots.\\
+\noindent \textbf{Acknowledgements}: Not applicable.
+
+
+
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+% \bibliographystyle{sn-nature}
+% \bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+
+\end{document}

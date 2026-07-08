@@ -1,0 +1,12 @@
+# OSMnx HTTP response cache (regenerated on demand)
+cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# Scratch outputs (paper figures live in figures/)
+*.tmp
