@@ -1,6 +1,7 @@
 # Pinned to the versions used to produce the paper results (Python 3.11)
 osmnx==1.9.4
 networkx==3.2.1
+igraph==0.10.8
 geopandas==0.14.0
 shapely>=2.0
 pandas>=2.0
@@ -10,9 +11,6 @@ statsmodels==0.14.1
 scikit-learn==1.3.2
 libpysal==4.12.1
 esda==2.9.0
-plotly==5.19.0
 matplotlib==3.9.2
-seaborn==0.13.2
-kaleido==0.1.0.post1
 jupyter
 nbconvert

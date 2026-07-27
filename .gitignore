@@ -10,3 +10,6 @@ __pycache__/
 
 # Scratch outputs (paper figures live in figures/)
 *.tmp
+
+# Transient checkpoint of compute_vulnerability.py (final table is results/vulnerability.csv)
+results/vulnerability_partial.csv
